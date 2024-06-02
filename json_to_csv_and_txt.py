@@ -3,7 +3,7 @@ import json
 
 parser = argparse.ArgumentParser(description='Convert COCO annotations to CSV format.')
 parser.add_argument('filename', type=str, help='The filename to process')
-parser.add_argument('--categories', nargs='+', type=int, help='List of category IDs to filter')
+parser.add_argument('--categories', nargs='+', type=str, help='List of category IDs to filter')
 args = parser.parse_args()
 input_filename = args.filename
 categories = args.categories if args.categories else None
@@ -25,7 +25,7 @@ for ann in data["annotations"]:
     y_min = ann["bbox"][1]
     x_max = x_min + ann["bbox"][2]
     y_max = y_min + ann["bbox"][3]
-    category = ["category_id"]
+    category = str(ann["category_id"])
     if categories and category not in categories:
         continue
     images[id]["annotations"].append(
