@@ -25,7 +25,7 @@ for ann in data["annotations"]:
     y_min = ann["bbox"][1]
     x_max = x_min + ann["bbox"][2]
     y_max = y_min + ann["bbox"][3]
-    category = str(ann["category_id"])
+    category = ["category_id"]
     if categories and category not in categories:
         continue
     images[id]["annotations"].append(
