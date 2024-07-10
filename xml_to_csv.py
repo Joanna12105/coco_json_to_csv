@@ -18,7 +18,7 @@ with open(csv, mode='w', newline='') as xml_file:
 
       path_file = os.path.join(path_folder, object_detection_file)
       tree = ET.parse(path_file)
-      
+      root = tree.getroot()    
       
       folder = root.find('folder').text
       filename = root.find('filename').text
