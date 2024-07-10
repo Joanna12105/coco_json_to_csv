@@ -4,10 +4,10 @@ import csv
 import os
 
 path_folder = "/content/images/"
-csv = "org_imgs_bb.csv"
+csv_filename = "org_imgs_bb.csv"
 
-with open(csv, mode='w', newline='') as xml_file:
-    writer = csv.writer(xml_file)
+with open(csv, mode='w', newline='') as csv_file:
+    writer = csv.writer(csv_file)
     
     writer.writerow(['Folder', 'Filename', 'Path', 'Source', 'Width', 'Height', 'Depth', 'Segmented', 
                      'Object Name', 'Object Pose', 'Object Truncated', 'Object Difficult', 'Bounding Box'])
