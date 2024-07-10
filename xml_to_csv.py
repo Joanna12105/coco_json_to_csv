@@ -6,7 +6,7 @@ import os
 path_folder = "/content/images/"
 csv_filename = "org_imgs_bb.csv"
 
-with open(csv, mode='w', newline='') as csv_file:
+with open(csv_filename, mode='w', newline='') as csv_file:
     writer = csv.writer(csv_file)
     
     writer.writerow(['Folder', 'Filename', 'Path', 'Source', 'Width', 'Height', 'Depth', 'Segmented', 
