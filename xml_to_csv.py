@@ -23,7 +23,9 @@ with open(csv_filename, mode='w', newline='') as csv_file:
       folder = root.find('folder').text
       filename = root.find('filename').text
       path = root.find('path').text
-      source = root.find('source').text
+      source_root = root.find('source')
+      source = source_root.find('database').text
+      size = root.find('size')
       width = size.find('width').text
       height = size.find('height').text
       depth = size.find('depth').text
@@ -34,6 +36,7 @@ with open(csv_filename, mode='w', newline='') as csv_file:
           pose = obj.find('pose').text
           truncated = obj.find('truncated').text
           difficult = obj.find('difficult').text
+          bndbox = obj.find('bndbox')
           xmin = bndbox.find('xmin').text
           ymin = bndbox.find('ymin').text
           xmax = bndbox.find('xmax').text
@@ -41,5 +44,5 @@ with open(csv_filename, mode='w', newline='') as csv_file:
           
           bbox = f'[{xmin}, {ymin}, {xmax}, {ymax}]'
           
-          writer.writerow([folder, filename, path, width, height, depth, segmented, 
+          writer.writerow([folder, filename, path, source, width, height, depth, segmented, 
                            name, pose, truncated, difficult, bbox])
