@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 from collections import defaultdict
 from xml.dom import minidom
 
-csv_path = "/content/augmented_imgs.csv"
+csv_path = "/content/org_imgs_bb.csv"
 
 with open(csv_path, 'r') as csv_file:
     csv_reader = csv.DictReader(csv_file)
