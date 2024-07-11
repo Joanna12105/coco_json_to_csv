@@ -72,8 +72,9 @@ for xml_file, rows in get_filenames.items():
     xml_str = minidom.parseString(xml_str).toprettyxml(indent="\t")
     xml_lines = xml_str.splitlines()
     xml_str = '\n'.join(line for line in xml_lines if line.strip() and not line.strip().startswith('<?xml'))
-    
-    output_file = f'{xml_file}.xml'
+
+    cut_name = xml_file[:-4]
+    output_file = f'{cut_name}.xml'
     save_path = "/content/images/" + output_file
     with open(save_path, "w") as file:
       file.write(xml_str)
